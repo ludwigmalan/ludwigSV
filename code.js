@@ -16,9 +16,11 @@ let filesURL=localStorage.getItem("save")
 let butL=document.getElementById("but1");
 let butR=document.getElementById("but2");
 
+let didcreate=false
 audio=document.getElementById("audio1")
 audio.load()
 window.addEventListener('mouseover',()=>{
+if(!didcreate){
 audioCTX = new AudioContext();
 audioSource=audioCTX.createMediaElementSource(audio);
 analyzer=audioCTX.createAnalyser()
@@ -28,6 +30,8 @@ analyzer.fftSize=1024;
 bufferLength=analyzer.frequencyBinCount;
 bufferArray=new Uint8Array(bufferLength)
 analyzer.fftSize=Math.round(analyzer.fftSize*2);
+didcreate=true
+}
 })
 let candraw=false;
 
@@ -130,8 +134,10 @@ function draw(arr){
 }
 draw([0,0,0,0,0,0])
 function animate(){
-    analyzer.getByteFrequencyData(bufferArray)
-    draw(bufferArray)
+    if(didcreate){
+        analyzer.getByteFrequencyData(bufferArray)
+        draw(bufferArray)
+    }
     requestAnimationFrame(animate)
 }
 animate()
