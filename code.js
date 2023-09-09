@@ -19,7 +19,7 @@ let butR=document.getElementById("but2");
 let didcreate=false
 audio=document.getElementById("audio1")
 audio.load()
-window.addEventListener('mouseover',()=>{
+window.addEventListener('click',()=>{
 if(!didcreate){
 audioCTX = new AudioContext();
 audioSource=audioCTX.createMediaElementSource(audio);
