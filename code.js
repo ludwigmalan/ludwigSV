@@ -28,7 +28,7 @@ audioSource.connect(analyzer)
 analyzer.connect(audioCTX.destination)
 analyzer.fftSize=1024;
 if(canvas.width<canvas.height){
-    analyzer.fftSize=512;
+    analyzer.fftSize=128;
 }
 bufferLength=analyzer.frequencyBinCount;
 bufferArray=new Uint8Array(bufferLength)
