@@ -18,6 +18,7 @@ let butR=document.getElementById("but2");
 
 audio=document.getElementById("audio1")
 audio.load()
+window.addEventListener('mouseover',()=>{
 audioCTX = new AudioContext();
 audioSource=audioCTX.createMediaElementSource(audio);
 analyzer=audioCTX.createAnalyser()
@@ -26,8 +27,9 @@ analyzer.connect(audioCTX.destination)
 analyzer.fftSize=1024;
 bufferLength=analyzer.frequencyBinCount;
 bufferArray=new Uint8Array(bufferLength)
-let candraw=false;
 analyzer.fftSize=Math.round(analyzer.fftSize*2);
+})
+let candraw=false;
 
 file.addEventListener('change',()=>{
     files=file.files;
