@@ -27,6 +27,9 @@ analyzer=audioCTX.createAnalyser()
 audioSource.connect(analyzer)
 analyzer.connect(audioCTX.destination)
 analyzer.fftSize=1024;
+if(canvas.width<canvas.height){
+    analyzer.fftSize=512;
+}
 bufferLength=analyzer.frequencyBinCount;
 bufferArray=new Uint8Array(bufferLength)
 analyzer.fftSize=Math.round(analyzer.fftSize*2);
