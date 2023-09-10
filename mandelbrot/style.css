@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+    color: #19191a;
+}
+input {
+    border-radius: 10px;
+    padding: 5px;
+}
+button {
+    border: 3px solid rgb(0, 153, 255);
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+.body{
+    width:100%;
+    background-image: url("6.png");
+    background-size: cover;
+}
+.option{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.dashboard{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    border: 2px solid yellow;
+    width:500px;
+    margin: 0px auto;
+}
+.apply{
+    size: 150%;
+}
+.myCanvaS{
+    margin-top: 20px;
+    border: 2px solid yellow;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.option2{
+    background-color: rgb(0, 162, 255);
+    margin: 10px;
+    border-radius: 10px;
+}
+.setting-description {
+    width: 120px;
+}

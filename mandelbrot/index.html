@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>mandelbrot</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="body">
+        <div class="main">
+            <canvas id="myCanvas" class="myCanvaS"></canvas>
+            <div class="dashboard">
+                <div class="option">
+                    <p>zoom direction:</p>
+                    <select class="zoomState">
+                        <option>in</option>
+                        <option>out</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <p class="setting-description">zoom:</p>
+                    <input class="zoomSize" type="number"></input>
+                </div>
+                <div class="option">
+                    <p class="setting-description"> iterations:</p>
+                    <input class="iterationNum" type="number"></input>
+                </div>
+                <div class="option">
+                    <p class="setting-description">multibrot power exponent:</p>
+                    <input class="multibrot_power" type="number">+</input>
+                    <input class="multibrot_ipower" type="number">i</input>
+                </div>
+                <div class="option">
+                    <p class="setting-description">image detail:</p>
+                    <input class="canvasDetail" type="number"></input>
+                </div>
+                <div class="option">
+                    <p class="setting-description">image width:</p>
+                    <input class="canvasWidth" type="number"></input>
+                </div>
+                <div class="option">
+                    <p class="setting-description">image height:</p>
+                    <input class="canvasHeight" type="number"></input>
+                </div>
+                <div class="option2">
+                    <p>CREATE JULIA SET HERE:</p>
+                    <p class="clicked_a">ca: 0</p>
+                    <p class="clicked_b">cb: 0</p>
+                    <input class="CA" type="number" placeholder="ca"></input>
+                    <input class="CB" type="number" placeholder="cb"></input>
+                    <p>(leave blank for non-julia sets)</p>
+                </div>
+                <div class="option">
+                    <button class="apply">apply settings</button>
+                </div>
+                <div class="option">
+                    <button class="reset">reset settings</button>
+                </div>
+            </div>
+        </div>
+        <script src="code.js" async defer></script>
+    </body>
+</html>
