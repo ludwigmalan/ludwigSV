@@ -52,3 +52,9 @@ body{
     border:solid yellow 2px;
     color:rgb(0, 89, 255);
 }
+#song-search{
+    position: absolute;
+    top:100px;
+    left:0px;
+    display: flex;
+}

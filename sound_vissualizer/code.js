@@ -15,6 +15,8 @@ let filesURL=localStorage.getItem("save")
 
 let butL=document.getElementById("but1");
 let butR=document.getElementById("but2");
+let findBut=document.getElementById("find");
+let findInput=document.getElementById("find-input");
 
 let didcreate=false
 audio=document.getElementById("audio1")
@@ -141,3 +143,27 @@ function animate(){
     requestAnimationFrame(animate)
 }
 animate()
+
+findBut.addEventListener('click',()=>{
+    if(findInput.value.length>0){
+        let keywords=findInput.value.toUpperCase().split(" ");
+        let score=0;
+        let findFile=0;
+        for(let i=0;i<files.length;i++){
+            let fileNameSearch=files[i].name.toUpperCase()
+            let thisScore=0
+            for(let j=0;j<keywords.length;j++){
+                if(fileNameSearch.indexOf(keywords[j])>0){
+                    thisScore+=1
+                }
+            }
+            if(thisScore>score){
+                score=thisScore
+                findFile=i
+            }
+            console.log(fileNameSearch)
+        }
+        numFile=findFile
+        resetFile()
+    }
+})

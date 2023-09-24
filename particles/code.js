@@ -12,7 +12,7 @@ let numtails=2;
 function createParticle(x,y){
     let startAngle=Math.random()*360
     let startSpeed=0.5
-    return {x,y,"role":0,"vx":Math.cos(startAngle)*startSpeed,"vy":Math.sin(startAngle)*startSpeed,"tail":[[x,y]]}
+    return {x,y,"role":0,"vx":Math.cos(startAngle)*startSpeed,"vy":Math.sin(startAngle)*startSpeed}
 }
 function createParticles(n){
     let particles=[];
