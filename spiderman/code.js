@@ -20,8 +20,8 @@ function update(){
     let didCling=false;
     for(let i=0;i<entitys.length;i++){
         if(pos[0]>entitys[i][0] && pos[0]<entitys[i][0]+entitys[i][2] && pos[1]>entitys[i][1] && pos[1]<entitys[i][1]+entitys[i][3]){
-            velocity[0]*=-1;
-            velocity[1]*=-1;
+            //velocity[0]*=-1;
+            //velocity[1]*=-1;
         }
         if(rope[1]>entitys[i][0] && rope[1]<entitys[i][0]+entitys[i][2] && rope[2]>entitys[i][1] && rope[2]<entitys[i][1]+entitys[i][3]){
             rope[3]=0;
@@ -89,13 +89,30 @@ canvas.addEventListener('click',()=>{
 })
 window.addEventListener('keydown',(event)=>{
     console.log(event.key)
+    if(event.key=="w"){
+        if(rope[3]==0 && rope[4]==0 && rope[0]){
+            let fx=(pos[0]-rope[1]);
+            let fy=(pos[1]-rope[2]);
+            let F=Math.sqrt(fx*fx+fy*fy);
+            if(F>10){
+                F=2
+            }else{
+                F=0
+            }
+            let t=Math.atan2(fy,fx);
+            fx=Math.cos(t)*F;
+            fy=Math.sin(t)*F;
+            velocity[0]-=fx;
+            velocity[1]-=fy;
+        }
+    }
     if(event.key==" "){
         if(rope[3]==0 && rope[4]==0 && rope[0]){
             let fx=(pos[0]-rope[1]);
             let fy=(pos[1]-rope[2]);
             let F=Math.sqrt(fx*fx+fy*fy);
             if(F>10){
-                F=10
+                F=2
             }else{
                 F=0
             }
