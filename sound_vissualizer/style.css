@@ -8,20 +8,23 @@ body{
     height:100vh;
 }
 #audio1{
-    top:0;
-    left:0;
-    width: 100vw;
+    top:0px;
+    left:120px;
+    width: calc(100vw - 120px);
     position: absolute;
 }
 #file-input{
     position: absolute;
-    top:60px;
+    top:0px;
     left:0px;
     color:antiquewhite;
+    background-color: black;
+    color: black;
+    font-size: 170%;
 }
 #name{
     position: absolute;
-    top:80px;
+    top:40px;
     left:0px;
     font-size: 150%;
     color:antiquewhite;
@@ -57,4 +60,22 @@ body{
     top:100px;
     left:0px;
     display: flex;
+}
+#find-input{
+    font-size: 150%;
+    color: rgb(37, 37, 37);
+    border-radius: 10px;
+}
+#find{
+    font-size: 150%;
+    color: rgb(37, 37, 37);
+    border: blue solid 2px;
+    background-color: aqua;
+    border-radius: 2px;
+}
+#find:hover{
+    background-color: rgb(2, 150, 150);
+}
+#find:active{
+    background-color: rgb(80, 214, 231);
 }
