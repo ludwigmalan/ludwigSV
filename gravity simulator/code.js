@@ -15,10 +15,10 @@ let createMasspoint=(x,y,mass)=>({x,y,mass,"vx":0,"vy":0});
 
 
 function law(){
-    for(let i=0;i<massPoints.length;i++){
+    for(let i=1;i<massPoints.length;i++){
         let fx=0;
         let fy=0;
-        for(let j=0;j<massPoints.length;j++){
+        for(let j=1;j<massPoints.length;j++){
             if(j!=i){
                 let dx=massPoints[i].x-massPoints[j].x;
                 let dy=massPoints[i].y-massPoints[j].y;
@@ -54,7 +54,7 @@ function law(){
 
 function createUniverse(n){
     let array=[0]
-    for(let i=0;i<n;i++){
+    for(let i=1;i<n;i++){
         array[i]=createMasspoint(Math.random()*space.width*4,Math.random()*space.height*4,Math.random()*1000+500)
     }
     return array
@@ -97,5 +97,18 @@ window.addEventListener('keydown',(event)=>{
     }
     if(event.keyCode==68){
         mapx+=speed
+    }
+    if(event.key=='1'){
+        massPoints[0]=0
+    }
+    if(event.key=='2'){
+        massPoints[0]=1
+    }
+})
+window.addEventListener('wheel',(event)=>{
+    if(event.deltaY>0){
+        scale*=1.2;
+    }else{
+        scale/=1.2;
     }
 })

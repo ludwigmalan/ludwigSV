@@ -101,6 +101,7 @@ setInterval(()=>{
         alert("you lose")
         tower=[[4,5,6,7],[0,0,0,0],[0,0,0,0]]
         moves=0
+        time=0;
     }
 },1000/60)
 

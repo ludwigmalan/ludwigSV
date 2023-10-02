@@ -43,9 +43,11 @@ function law(){
                     let dx=particles[j].x-particles[i].x;
                     let dy=particles[j].y-particles[i].y;
                     let d=Math.sqrt(dx*dx+dy*dy);
-                    let F=Gconstant/d**2
-                    fx+=(F*dx)
-                    fy+=(F*dy)
+                    if(d>1){
+                        let F=Gconstant/d**2
+                        fx+=(F*dx)
+                        fy+=(F*dy)
+                    }
                 }
             }
         }
@@ -106,18 +108,17 @@ canvas.addEventListener("click",()=>{
     activeMouse=!activeMouse;
 })
 window.addEventListener('keydown',(event)=>{
-    console.log(event.keyCode)
-    switch (event.keyCode){
-        case 84:
-            let p=Math.round(Math.random()*(particles.length-1))
-            particles[p].x=mouseX
-            particles[p].y=mouseY
-            break;
-        case 71:
-            gravityActive=!gravityActive
+    console.log(event.key)
+    if(event.key=="t"){
+        let p=Math.round(Math.random()*(particles.length-1));
+        particles[p].x=mouseX;
+        particles[p].y=mouseY;
+    }
+    if(event.key=="g"){
+        gravityActive=!gravityActive
     }
 })
 window.addEventListener('mousemove',(event)=>{
-    mouseX=event.offsetX
-    mouseY=event.offsetY
+    mouseX=event.offsetX;
+    mouseY=event.offsetY;
 })

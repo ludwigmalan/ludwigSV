@@ -57,50 +57,35 @@ window.addEventListener("keydown",(event)=>{
     if(k=="d"){
         mapx+=speed
     }
-    if(!isNaN(k)){
-        k=Number(k);
         try{
             for(let i=0;i<mapSize;i+=1){
                 for(let j=0;j<mapSize;j+=1){
                     if(mousex>(i*blockSize)-mapx && mousex<(i*blockSize)-mapx+blockSize && mousey>(j*blockSize)-mapy && mousey<(j*blockSize)-mapy+blockSize){
                         let editx=0;
                         let edity=0;
-                        if(k==1){
-                            editx=-1;
-                            edity=-1;
-                        }
-                        if(k==2){
+                        if(k=='t'){
                             editx=0;
                             edity=-1;
                         }
-                        if(k==3){
-                            editx=1;
-                            edity=-1;
-                        }
-                        if(k==4){
+                        if(k=='f'){
                             editx=-1;
                             edity=0;
                         }
-                        if(k==6){
+                        if(k=='h'){
                             editx=1;
                             edity=0;
                         }
-                        if(k==7){
-                            editx=-1;
-                            edity=1;
-                        }
-                        if(k==8){
+                        if(k=='g'){
                             editx=0;
                             edity=1;
                         }
-                        if(k==9){
-                            editx=1;
-                            edity=1;
+                        if(!isNaN(k)){
+                            map[i][j]=Number(k)
                         }
                         let canMove=false;
                         for(let o=-1;o<2;o+=1){
                             for(let p=-1;p<2;p+=1){
-                                if(i+o>-1 && i+o<blockSize && j+p>-1 && j+p<blockSize){
+                                if(i+o>-1 && i+o<mapSize && j+p>-1 && j+p<mapSize){
                                     if(!(o==0 && p==0)){
                                         if(map[i+o][j+p]>0){
                                             canMove=true;
@@ -119,7 +104,6 @@ window.addEventListener("keydown",(event)=>{
         }catch(err){
             console.log(err)
         }
-    }
 })
 window.addEventListener("mousemove",(event)=>{
     mousex=Math.max(event.offsetX-mapx,0);

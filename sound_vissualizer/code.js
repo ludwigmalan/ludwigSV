@@ -37,6 +37,7 @@ didcreate=true
 }
 })
 let candraw=false;
+let drawFunc=1;
 
 file.addEventListener('change',()=>{
     files=file.files;
@@ -100,46 +101,48 @@ if(canvas.width<canvas.height){
     document.getElementById("select-song").style.visibility="visible"
 }
 let middelx=canvas.width/2
-//K%*Hbq6feA~FsZT
-function draw(arr){
-    let Fscale=1/scale;
-    let maxcicle=170/Fscale;
-    let mincircle=50/Fscale;
-    ctx.fillStyle="black";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.strokeStyle="lightblue"
-    let arrLength=arr.length
-    for(let i=0;i<arr.length;i++){
-        ctx.strokeStyle=`hsl(${(330/300)*arr[i]},80%,50%)`
-        ctx.beginPath();
-        ctx.moveTo(middelx,middely);
-        let angle=((Math.PI*2)*i/arrLength)
-        let d=maxcicle+arr[i]/(2*Fscale)
-        ctx.lineTo(middelx+(Math.sin(angle)*d),middely+(Math.cos(angle)*d));
-        ctx.lineWidth = (maxcicle*2*Math.PI)/arrLength;
-        ctx.stroke();
-    }
-    ctx.lineWidth=1/Fscale;
-    ctx.beginPath()
-    ctx.arc(middelx,middely,maxcicle,0,Math.PI*2)
-    ctx.fill()
-    ctx.stroke()
-    for(let i=0;i<arr.length;i++){
-        ctx.strokeStyle=`hsl(${(330/300)*arr[i]},80%,50%)`
+
+let draw={
+    "1":(arr)=>{
+        let Fscale=1/scale;
+        let maxcicle=170/Fscale;
+        let mincircle=50/Fscale;
+        ctx.fillStyle="black";
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.strokeStyle="lightblue"
+        let arrLength=arr.length
+        for(let i=0;i<arr.length;i++){
+            ctx.strokeStyle=`hsl(${(330/300)*arr[i]},80%,50%)`
+            ctx.beginPath();
+            ctx.moveTo(middelx,middely);
+            let angle=((Math.PI*2)*i/arrLength)
+            let d=maxcicle+arr[i]/(2*Fscale)
+            ctx.lineTo(middelx+(Math.sin(angle)*d),middely+(Math.cos(angle)*d));
+            ctx.lineWidth = (maxcicle*2*Math.PI)/arrLength;
+            ctx.stroke();
+        }
+        ctx.lineWidth=1/Fscale;
         ctx.beginPath()
-        ctx.arc(middelx,middely,mincircle+((maxcicle-mincircle)/300)*arr[i],0,Math.PI*2)
+        ctx.arc(middelx,middely,maxcicle,0,Math.PI*2)
+        ctx.fill()
         ctx.stroke()
+        for(let i=0;i<arr.length;i++){
+            ctx.strokeStyle=`hsl(${(330/300)*arr[i]},80%,50%)`
+            ctx.beginPath()
+            ctx.arc(middelx,middely,mincircle+((maxcicle-mincircle)/300)*arr[i],0,Math.PI*2)
+            ctx.stroke()
+        }
+        ctx.beginPath()
+        ctx.fillStyle=`hsl(${(330/300)*arr[0]},80%,50%)`
+        ctx.arc(middelx,middely,mincircle,0,Math.PI*2)
+        ctx.fill()
     }
-    ctx.beginPath()
-    ctx.fillStyle=`hsl(${(330/300)*arr[0]},80%,50%)`
-    ctx.arc(middelx,middely,mincircle,0,Math.PI*2)
-    ctx.fill()
 }
-draw([0,0,0,0,0,0])
+draw[`${drawFunc}`]([0,0,0,0,0,0])
 function animate(){
     if(didcreate){
         analyzer.getByteFrequencyData(bufferArray)
-        draw(bufferArray)
+        draw[`${drawFunc}`](bufferArray)
     }
     requestAnimationFrame(animate)
 }

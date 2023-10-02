@@ -5,7 +5,7 @@ let ctx=canvas.getContext('2d');
 
 let pos=[0,0]
 let rope=[false,0,0,0,0,0]
-let entitys=[[20,20,200,200],[400,20,200,200]]
+let entitys=[[20,20,200,200],[400,20,200,200],[-1000,-100,10000,10]]
 let velocity=[0,0]
 let mousex=0;
 let mousey=0;

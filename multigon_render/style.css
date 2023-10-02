@@ -1,4 +1,30 @@
 *{
     margin: 0px;
     box-sizing: border-box;
+    color:rgb(22, 22, 22);
+}
+body{
+    display: flex;
+    background-color: aqua;
+}
+.parameters{
+    display: flex;
+    margin: 10px;
+}
+p{
+    width: 200px;
+    font-size: 150%;
+}
+input{
+    padding:10px;
+    border-radius: 20px;;
+}
+#but-div{
+    display: flex;
+    justify-content: center;
+}
+#but{
+    padding:10px;
+    font-size: 150%;
+    border-radius: 20px;
 }
