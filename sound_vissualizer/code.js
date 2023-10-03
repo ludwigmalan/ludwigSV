@@ -5,7 +5,6 @@ let ctx=canvas.getContext("2d");
 let audioSource;
 let analyzer;
 let files;
-//https://fmoviesto.cc/watch-tv/phineas-and-ferb-2007-full-39100.4944235
 let audio;
 let audioCTX;
 let bufferArray;
@@ -167,7 +166,9 @@ findBut.addEventListener('click',()=>{
             }
             console.log(fileNameSearch)
         }
-        numFile=findFile
-        resetFile()
+        if(score>0){
+            numFile=findFile
+            resetFile()
+        }
     }
 })
