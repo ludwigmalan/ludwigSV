@@ -1,8 +1,9 @@
-let Dividend=document.querySelector(".Dividend");
-let Divisor=document.querySelector(".Divisor");
-let calculateButton=document.querySelector(".calculateButton");
+let Dividend=document.getElementById("Dividend");
+let Divisor=document.getElementById("Divisor");
+let calculateButton=document.getElementById("calculateButton");
+let stopCalculateButton=document.getElementById("stopCalculateButton");
 
-let numberBox=document.querySelector(".numberBox");
+let numberBox=document.getElementById("numberBox");
 
 let numberString="";
 let dividendNumber=0;
@@ -48,7 +49,7 @@ calculateButton.addEventListener('click',function(){
             numberBox.innerHTML=`${X}.`;
             let O=Z-(Y*X);
             Z=O*10;
-            interval=setInterval(function(){
+            interval=setInterval(()=>{
                 if(numberOfIntervals==0){
                     numberOfIntervals=1;
                 }
@@ -60,3 +61,6 @@ calculateButton.addEventListener('click',function(){
         }
     }
 });
+stopCalculateButton.addEventListener("click",()=>{
+    clearInterval(interval)
+})

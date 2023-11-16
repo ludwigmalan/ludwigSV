@@ -44,14 +44,14 @@ function law(){
                     let dy=particles[j].y-particles[i].y;
                     let d=Math.sqrt(dx*dx+dy*dy);
                     if(d>1){
-                        let F=Gconstant/d**2
+                    let F=Gconstant/d**2
                         fx+=(F*dx)
                         fy+=(F*dy)
                     }
                 }
             }
         }
-        particles[i].vx+=fx
+                particles[i].vx+=fx
         particles[i].vy+=fy
         if(Math.sqrt(particles[i].vx**2+particles[i].vy**2)>0.5){
             particles[i].vx*=0.995
@@ -109,12 +109,12 @@ canvas.addEventListener("click",()=>{
 })
 window.addEventListener('keydown',(event)=>{
     console.log(event.key)
-    if(event.key=="t"){
+    if(event.key=="t" || event.key=="T"){
         let p=Math.round(Math.random()*(particles.length-1));
         particles[p].x=mouseX;
         particles[p].y=mouseY;
     }
-    if(event.key=="g"){
+    if(event.key=="g" || event.key=="G"){
         gravityActive=!gravityActive
     }
 })

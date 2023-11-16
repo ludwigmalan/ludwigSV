@@ -57,7 +57,7 @@ setInterval(()=>{
         canSubmit=false;
         input.innerText=''
     }else{
-        guide.innerText="remember the number!";
+        guide.innerText="type the number!";
         canSubmit=true;
     }
     count+=1

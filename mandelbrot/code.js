@@ -30,34 +30,44 @@ let juliaSet_cb=false;
 let julia_ca=0;
 let julia_cb=0;
 
+let a;
+let b;
+let ca;
+let cb;
+let i;
+let r;
+let t;
+let p;
+let m;
+
 function mandel(){
     for(let x=0;x<width/pixelSize;x++){
         for(let y=0;y<height/pixelSize;y++){
-            let a=start_x+x/scale;
-            let b=start_y+y/scale;
+            a=start_x+x/scale;
+            b=start_y+y/scale;
 
-            let ca=a;
+            ca=a;
             if(juliaSet_ca){ca=julia_ca}
-            let cb=b;
+            cb=b;
             if(juliaSet_cb){cb=julia_cb}
 
-            let i=0;
-                while(i<iterations){
-                    //mandel calculation begins
-                    
-                    let r=Math.sqrt(a*a+b*b);
-                    let t=Math.atan2(b,a);
-                    let p=(r**power)*(Math.E**(-1*ipower*t));
-                    let m=power*t+ipower*Math.log(r);
-                    a=p*Math.cos(m)+ca;
-                    b=p*Math.sin(m)+cb;
-                    
-                    //mandel calculation ends                    
-                    if(a*a+b*b>4){  
-                        break;
-                    }
-                    i++;
+            i=0;
+            while(i<iterations){
+                //mandel calculation begins
+                
+                r=Math.sqrt(a*a+b*b);
+                t=Math.atan2(b,a);
+                p=(r**power)*(Math.E**(-1*ipower*t));
+                m=power*t+ipower*Math.log(r);
+                a=p*Math.cos(m)+ca;
+                b=p*Math.sin(m)+cb;
+                
+                //mandel calculation ends                    
+                if(a*a+b*b>4){  
+                    break;
                 }
+                i++;
+            }
             
             ctx.fillStyle=`hsl(${(330/iterations)*i},80%,50%)`; //selects color based on namber of iterations
             ctx.fillRect(x*pixelSize,y*pixelSize,pixelSize,pixelSize);

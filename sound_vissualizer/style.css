@@ -21,6 +21,7 @@ body{
     background-color: black;
     color: black;
     font-size: 170%;
+    width: 120px;
 }
 #name{
     position: absolute;
@@ -72,10 +73,53 @@ body{
     border: blue solid 2px;
     background-color: aqua;
     border-radius: 2px;
+    padding: 5px;
 }
 #find:hover{
     background-color: rgb(2, 150, 150);
 }
 #find:active{
     background-color: rgb(80, 214, 231);
+}
+#select-modes{
+    position: absolute;
+    top:150px;
+    left:0;
+}
+#select-songs{
+    width:100px;
+}
+#settings{
+    position: absolute;
+    top:180px;
+    left:0;
+    padding: 10px;
+    border: 2px solid yellow;
+}
+#setting-button{
+    padding: 1px;
+    color: rgb(37, 37, 37);
+    border: blue solid 2px;
+    background-color: aqua;
+    border-radius: 2px;
+}
+#setting-button:hover{
+    background-color: rgb(2, 150, 150);
+}
+#setting-button:active{
+    background-color: rgb(80, 214, 231);
+}
+.add-flex{
+    display: flex;
+}
+#input-mode{
+    margin-right: 10px;
+}
+#color-range-div{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#scale-div{
+    margin-top: 10px;
 }

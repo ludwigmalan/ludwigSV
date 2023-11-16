@@ -139,6 +139,22 @@ window.addEventListener("keydown",(event)=>{
     plot();
 }
 })
+window.addEventListener("wheel",(event)=>{
+    if(changeGraph==true){
+        let zoomNum=1;
+        if (event.deltaY>0){
+            xrange[0]+=zoomNum;
+            xrange[1]-=zoomNum;
+            yrange[0]-=zoomNum;
+            yrange[1]+=zoomNum;
+        }else{
+            xrange[0]-=zoomNum;
+            xrange[1]+=zoomNum;
+            yrange[0]+=zoomNum;
+            yrange[1]-=zoomNum;
+        }
+    }
+})
 
 calButton.addEventListener("click",()=>{
     plot();

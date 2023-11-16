@@ -3,16 +3,16 @@
     padding: 0px;
     box-sizing: border-box;
 }
-.body {
+body {
     display: flex;
     justify-content: center;
     background-color: aqua;
 }
-.center-box {
+#center-box {
     background-color: yellow;
     width: 700px;
 }
-.numberBox {
+#numberBox {
     background-color: white;
     overflow-wrap: break-word;
 }
